@@ -1,6 +1,15 @@
 from MathRequest import MathRequest
 
-    def get_calculate():
+class Mathlib:
+    def __init__(self,res):
+        self.res = res
+
+
+    def get_calculate(MathRequest):
+        ope1 = MathRequest.get_ope1()
+        oper = MathRequest.get
+        ope2 = MathRequest.get_ope1()
+
         match MathRequest.get_oper():
             case '+':
                 res = MathRequest.get_ope1() + MathRequest.get_ope2()
@@ -19,5 +28,5 @@ from MathRequest import MathRequest
                     res = res * MathRequest.get_ope2()
             case _:
                 print("Invalid operator.")
-                return
-        return res
+
+        MathRequest.set_res(res)
