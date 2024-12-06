@@ -1,5 +1,7 @@
 class MathRequest:
 
+    from MathLib import res
+
     def __init__ (self, ope1, oper, ope2):
         self.ope1 = ope1
         self.oper = oper
