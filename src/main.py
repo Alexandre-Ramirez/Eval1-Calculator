@@ -1,78 +1,31 @@
-operand1 = None
-operator = None
-operand2 = None
-
+from src.MathRequest import MathRequest
 def main():
-    ask_user_input()
-    result = calculate(operand1, operator, operand2)
-    display_result(operand1, operator, operand2, result)
+    math_request = ask_user_input()
+    math_request.set_res(calculate(math_request))
+    display_result(math_request)
 
-    """
-def ask_user_input():
+def ask_user_input() -> MathRequest:
     # Get first operand from the user
-    global operand1
-    operand1 = float(input("Enter the first operand: "))
+    ope1 = ask_user_float_input("Enter the first operand: ")
 
-    global operator
     # Get the operator from the user
-    operator = input("Enter an operator (+, -, *, /): ")
+    oper = input("Enter an operator (+, -, *, /, ^): ")
 
-    global operand2
     # Get second operand from the user
-    operand2 = float(input("Enter the second operand: "))
-    
-"""
-def ask_user_float_input():
-    try :
-        in_float = float(input(operand1))
-    except:
-        return False
-    return True
-    try :
-        in_float = float(input(operand2))
-    except:
-        return False
-    return True
+    ope2 = ask_user_float_input("Enter the second operand: ")
+
+    return MathRequest(ope1, oper, ope2)
+
+def ask_user_float_input(msg):
+    return float(input(msg))
+
+def calculate(math_request):
 
 
-def ask_user_input():
-    # Get first operand from the user
-    global operand1
-    operand1 = ask_user_float_input("Enter the first operand: ")
+def display_result(math_request):
+    # Print the result
+        print(math_request.to_string())
 
-    global operator
-    # Get the operator from the user
-    operator = input("Enter an operator (+, -, *, /, ^): ")
-
-    global operand2
-    # Get second operand from the user
-    operand2 = ask_user_float_input("Enter the second operand: ")
-
-
-def calculate(ope1, oper, ope2):
-    # Perform the operation based on the operator
-    match oper:
-        case '+':
-            res = ope1 + ope2
-        case '-':
-            res = ope2 - ope2
-        case '*':
-            res = ope1 * ope2
-        case '/':
-            if ope2 == 0:
-                print("Error: Division by zero is undefined.")
-                return
-            res = ope1 / ope2
-        case ' ':
-            print("Invalid operator.")
-            return
-        case '^^':
-            res = pow(ope1,ope2)
-
-    return res
-
-def display_result(op1, ope, ope2, res):
-    print(str(op1) + " " + ope + " " + str(ope2) + " = " + str(res))
 
 # Call the main function to run the program
 main()
