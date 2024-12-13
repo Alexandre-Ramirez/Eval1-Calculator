@@ -3,18 +3,17 @@ import unittest
 from src.MathLib import MathLib
 from src.MathRequest import MathRequest
 
-
 class TestMathLib(unittest.TestCase):
 
     def setUp(self):
-        pass
+        self.mathLib = MathLib()
 
     def test_execute_add_get_result(self):
         #given
         mathRequest = MathRequest(3, 'add', 4)
 
         #when
-        MathLib.execute(mathRequest)
+        self.mathLib.execute(mathRequest)
 
         #then
         self.assertEqual(mathRequest.get_res(), 7)
