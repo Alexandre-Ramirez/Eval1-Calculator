@@ -23,7 +23,7 @@ def calculate(math_request):
 
 def display_result(math_request):
     # Print the result
-        print(math_request.to_string())
+    print(math_request.to_string())
 
 
 # Call the main function to run the program
