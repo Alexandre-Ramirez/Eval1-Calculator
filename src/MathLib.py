@@ -1,18 +1,13 @@
 class MathLib:
 
-    @classmethod
-    def execute(self, mathRequest):
+    def __init__(self):
+        pass
 
-        match mathRequest.set_res() :
-            case 'add' :
-                mathRequest.set_res(mathRequest.get_ope1() + mathRequest.get_ope2())
-            case 'sub' :
-                mathRequest.set_res(mathRequest.get_ope1() - mathRequest.get_ope2())
-            case 'mul' :
-                mathRequest.set_res(mathRequest.get_ope1() * mathRequest.get_ope2())
-            case 'div' :
-                mathRequest.set_res(mathRequest.get_ope1() / mathRequest.get_ope2())
-            case 'pow' :
-                mathRequest.set_res(mathRequest.get_ope1() ^ mathRequest.get_ope2())
-            case 'root' :
-                mathRequest.set_res(mathRequest.get_ope1() ** mathRequest.get_ope2())
+    def execute(self, mathRequest):
+        oper = mathRequest.get_oper()
+        ope1 = mathRequest.get_ope1()
+        ope2 = mathRequest.get_ope2()
+
+        if(oper == 'add'):
+            res = ope1 + ope2
+            mathRequest.set_res(res)
